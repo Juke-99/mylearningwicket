@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<web-app xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://www.oracle.com/webfolder/technetwork/jsc/xml/ns/javaee/web-app_3_0.xsd"
+	version="3.0">
+
+	<display-name>mylearning</display-name>
+
+	<!--
+		There are three means to configure Wickets configuration mode and they
+		are tested in the order given.
+
+		1) A system property: -Dwicket.configuration
+		2) servlet specific <init-param>
+		3) context specific <context-param>
+
+		The value might be either "development" (reloading when templates change) or
+		"deployment". If no configuration is found, "development" is the default. -->
+
+	<filter>
+		<filter-name>wicket.mylearning</filter-name>
+		<filter-class>org.apache.wicket.protocol.http.WicketFilter</filter-class>
+		<init-param>
+			<param-name>applicationClassName</param-name>
+			<param-value>com.dreamseeker.WicketApplication</param-value>
+		</init-param>
+	</filter>
+
+	<filter>
+		<filter-name>HelloWorldApp</filter-name>
+		<filter-class>org.apache.wicket.protocol.http.WicketFilter</filter-class>
+		<init-param>
+			<param-name>applicationClassName</param-name>
+			<param-value>com.dreamseeker.HelloWorldApp</param-value>
+		</init-param>
+	</filter>
+
+	<filter>
+		<filter-name>ClickLinkApp</filter-name>
+		<filter-class>org.apache.wicket.protocol.http.WicketFilter</filter-class>
+		<init-param>
+			<param-name>applicationClassName</param-name>
+			<param-value>com.dreamseeker.ClickLinkApp</param-value>
+		</init-param>
+	</filter>
+
+	<filter>
+		<filter-name>PanelsApp</filter-name>
+		<filter-class>org.apache.wicket.protocol.http.WicketFilter</filter-class>
+		<init-param>
+			<param-name>applicationClassName</param-name>
+			<param-value>com.dreamseeker.PanelsApp</param-value>
+		</init-param>
+	</filter>
+
+	<filter>
+		<filter-name>BasePageApp</filter-name>
+		<filter-class>org.apache.wicket.protocol.http.WicketFilter</filter-class>
+		<init-param>
+			<param-name>applicationClassName</param-name>
+			<param-value>com.dreamseeker.BasePageApp</param-value>
+		</init-param>
+	</filter>
+
+	<filter-mapping>
+		<filter-name>wicket.mylearning</filter-name>
+		<url-pattern>/start/*</url-pattern>
+	</filter-mapping>
+
+	<filter-mapping>
+		<filter-name>HelloWorldApp</filter-name>
+		<url-pattern>/hello/*</url-pattern>
+	</filter-mapping>
+
+	<filter-mapping>
+		<filter-name>ClickLinkApp</filter-name>
+		<url-pattern>/clicklink/*</url-pattern>
+	</filter-mapping>
+
+	<filter-mapping>
+		<filter-name>PanelsApp</filter-name>
+		<url-pattern>/panels/*</url-pattern>
+	</filter-mapping>
+
+	<filter-mapping>
+		<filter-name>BasePageApp</filter-name>
+		<url-pattern>/parent/*</url-pattern>
+	</filter-mapping>
+</web-app>
